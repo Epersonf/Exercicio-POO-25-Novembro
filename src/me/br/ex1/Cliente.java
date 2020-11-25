@@ -1,14 +1,18 @@
 package me.br.ex1;
 
-import java.util.Date;
+
+import java.io.Serializable;
 
 import me.br.ex1.exceptions.DadoInvalidoException;
 
-public class Cliente {
+public class Cliente implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String cpf;
 	private String nome;
 	private String email;
-	private Date aniversario;
 	
 	public String getEmail() {
 		return email;
@@ -29,17 +33,18 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getAniversario() {
-		return aniversario;
-	}
-	public void setAniversario(Date aniversario) {
-		this.aniversario = aniversario;
-	}
 	
-	public Cliente(String cpf, String nome, String email, Date aniversario) throws DadoInvalidoException {
+	public Cliente(String cpf, String nome, String email) throws DadoInvalidoException {
 		setCpf(cpf);
 		setNome(nome);
 		setEmail(email);
-		setAniversario(aniversario);
+	}
+	
+	public String stringify() {
+		return this.cpf + ";" + nome + ";" + email;
+	}
+	
+	public String getDados() {
+		return "CPF: " + getCpf() + ", Nome: " + getNome() + ", Email: " + getEmail();
 	}
 }
