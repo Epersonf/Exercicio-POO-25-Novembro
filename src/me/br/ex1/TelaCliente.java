@@ -38,7 +38,11 @@ public class TelaCliente {
 				cpf = scan.next();
 				System.out.println("Digite o email do cliente: ");
 				email = scan.next();
-				CadastroCliente.inserir(new Cliente(cpf, name, email));
+				if (CadastroCliente.inserir(new Cliente(cpf, name, email))) {
+					System.out.println("Usuario registrado");
+				} else {
+					System.out.println("CPF ja cadastrado.");
+				}
 				menu = 0;
 				break;
 			case 2:

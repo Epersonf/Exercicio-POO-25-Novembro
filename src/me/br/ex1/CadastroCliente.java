@@ -16,8 +16,8 @@ public class CadastroCliente {
 		ClienteArquivo.salvaCadastros();
 	}
 	
-	public static void inserir(Cliente c) throws RepositorioException, ClienteJaExistenteException, IOException, ClassNotFoundException {
-		ClienteArquivo.inserir(c);
+	public static boolean inserir(Cliente c) throws RepositorioException, ClienteJaExistenteException, IOException, ClassNotFoundException {
+		return ClienteArquivo.inserir(c);
 	}
 	
 	public static ArrayList<Cliente> buscar(String key, boolean porCPF) throws ClienteInexistenteException, IOException, ClassNotFoundException {
